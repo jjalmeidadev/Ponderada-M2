@@ -7,46 +7,85 @@ A proposta de projeto escolhida foi a criação de uma plataforma de eventos, op
 A estrutura geral se assemelha a:
 
 meu-projeto/
-│ 
-│ 
+
+│
+
 ├── Comp_Ponderada1.md
+
 │ 
+
 ├── Comp_Ponderada2.md
-│   
+
+│
+   
 ├── Comp_Ponderada3.md
+
 │   
+
 ├── Comp_Ponderada4.md
+
 │   
+
 ├── UX_Ponderada1.md
+
 │
+
 ├── UX_Ponderada2.md
+
 │  
+
 ├── UX_Ponderada3.md
+
 │
+
 ├── modelo-banco.pdf
+
 │           
+
 └── database.js            # Arquivos de configuração (ex: conexão com banco)
+
 ├── controllers/           # Lógica de controle das requisições
-│   └── HomeController.js
+
+   └── HomeController.js
+
 ├── models/                # Definição de modelos de dados (estrutura do banco)
-│   └── User.js
+
+   └── User.js
+
 ├── routes/                # Definição das rotas do sistema
-│   └── index.js
+
+   └── index.js
+
 ├── services/              # Serviços auxiliares do sistema
-│   └── userService.js
+
+   └── userService.js
+
 ├── assets/                # Arquivos públicos como imagens e fontes
+
 ├── scripts/               # Arquivos de JavaScript públicos
+
 ├── styles/                # Arquivos CSS públicos
+
 ├── tests/                 # Arquivos de testes unitários
-│   └── example.test.js
+
+   └── example.test.js
+
 ├── .gitignore             # Arquivo para ignorar arquivos no Git
+
 ├── .env.example           # Arquivo de exemplo para variáveis de ambiente
+
 ├── jest.config.js         # Arquivo de configuração do Jest
+
 ├── package-lock.json      # Gerenciador de dependências do Node.js
+
 ├── package.json           # Gerenciador de dependências do Node.js
+
 ├── readme.md              # Documentação do projeto (Markdown)
+
 ├── server.js              # Arquivo principal que inicializa o servidor
+
 └── rest.http              # Teste de endpoints (opcional)
+
 └──template-PI-WAD.md      # Documento principal
 
 
