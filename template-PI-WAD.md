@@ -42,9 +42,62 @@ A user story "Como participante interessado, quero visualizar a lista de eventos
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
-*Posicione aqui os diagramas de modelos relacionais do seu banco de dados, apresentando todos os esquemas de tabelas e suas relações. Utilize texto para complementar suas explicações, se necessário.*
+![imagem_2025-05-01_001739717](https://github.com/user-attachments/assets/762dd312-ff80-4a0c-a778-141804b8e523)
 
-*Posicione também o modelo físico com o Schema do BD (arquivo .sql)*
+#### Entidades e Atributos
+
+Principais tabelas, que espelham funcionalidades e usuários do website, reunidos:
+
+| Entidade       | Atributos com Chaves                                                                 |
+|----------------|------------------------------------------------------------------------------------|
+| `events`       | `id` (PK), `title`, `subtitle`, `description`, `start_date`, `end_date`, `image_url`, `video_url` |
+| `organization` | `id` (PK), `name`                                                  |
+| `members`      | `id` (PK), `organization_id` (FK), `user_id` (FK)                       |
+| `participants` | `id` (PK), `name`, `email`, `document` (CPF/RG), `accepted_events_id` (boolean)             |
+| `subscriptions`| `id` (PK), `event_id` (FK), `participant_id` (FK), `status` ("pending"/"accepted"/"rejected"), `subscription_date` |
+
+Código SQL utilizado na formação das tabelas:
+```sql
+Table events {
+  id integer [pk, increment]
+  title varchar(100) [not null]
+  subtitle varchar(200)
+  description text
+  start_date timestamp [not null]
+  end_date timestamp
+  image_url varchar(255)
+  video_url varchar(255)
+  organization_id integer [ref: > organization.id]
+}
+
+Table organization {
+  id integer [pk, increment]
+  name varchar (100) [not null]
+}
+
+Table members {
+  id integer [pk, increment]
+  organization_id integer [ref: > organization.id]
+  user_id integer
+}
+
+Table participants {
+  id integer [pk, increment]
+  name varchar(100) [not null]
+  email varchar(100) [not null, unique]
+  document varchar(20) [unique]
+  accepted_events_id boolean [default: false, ref: > events.id]
+}
+
+Table subscriptions {
+  id integer [pk, increment]
+  event_id integer [ref: > events.id]
+  participant_id integer [ref: > participants.id]
+  status varchar(20) [default: 'pending']
+  subscription_date timestamp
+}
+
+```
 
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
