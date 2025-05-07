@@ -42,7 +42,7 @@ A user story "Como participante interessado, quero visualizar a lista de eventos
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
-![imagem_2025-05-01_001739717](https://github.com/user-attachments/assets/762dd312-ff80-4a0c-a778-141804b8e523)
+![Screenshot 2025-05-07 17 06 01](https://github.com/user-attachments/assets/54a188ca-f2b8-449e-bc2c-dce555483d36)
 
 #### Entidades e Atributos
 
@@ -57,16 +57,17 @@ Principais tabelas, que espelham funcionalidades e usuários do website, reunido
 | `subscriptions`| `id` (PK), `event_id` (FK), `participant_id` (FK), `status` ("pending"/"accepted"/"rejected"), `subscription_date` |
 
 Código SQL utilizado na formação das tabelas:
-```sql
+```sql[Untitled.pdf](https://github.com/user-attachments/files/20092713/Untitled.pdf)
+
 Table events {
   id integer [pk, increment]
   title varchar(100) [not null]
-  subtitle varchar(200)
+  subtitle varchar(100)
   description text
   start_date timestamp [not null]
-  end_date timestamp
-  image_url varchar(255)
-  video_url varchar(255)
+  end_date timestamp [not null]
+  image_url varchar(100)
+  video_url varchar(100)
   organization_id integer [ref: > organization.id]
 }
 
@@ -93,7 +94,7 @@ Table subscriptions {
   id integer [pk, increment]
   event_id integer [ref: > events.id]
   participant_id integer [ref: > participants.id]
-  status varchar(20) [default: 'pending']
+  status varchar(50) [default: 'pending']
   subscription_date timestamp
 }
 
