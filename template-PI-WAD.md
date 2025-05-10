@@ -32,7 +32,7 @@ US01 | Como participante interessado, quero visualizar a lista de eventos com im
 
 US02 | Como organizador de eventos, quero criar, editar e gerenciar eventos na plataforma, para que eu possa divulgar atividades com autonomia e manter os dados atualizados para os participantes.
 
-US03 | Como usuário cadastrado, quero acessar meu perfil com minha lista de eventos inscritos já integrados ao meu Google Calendar, para que eu possa me organizar melhor e manter meus compromissos alinhados com a minha rotina.
+US03 | Como usuário cadastrado, quero acessar meu perfil com minha lista de eventos inscritos já visível, para que eu possa me organizar melhor e manter meus compromissos alinhados com a minha rotina.
 
 A user story "Como participante interessado, quero visualizar a lista de eventos com imagens, descrições e datas, para que eu possa escolher em quais quero me inscrever com base nas informações apresentadas." atende aos critérios INVEST de forma que: seja independente, pela visualização poder ocorrer sem depender de outras funcionalidades externas, como o sistema de inscrição; negociável, de maneira que ajustes possam ser feitos em dimensões de mídias ou no scroll se necessário; valiosa, por tornar a agenda do usuário mais organizada pela natureza de acessibilidade da plataforma; estimável, pelos recursos serem mais simples e detalhadamente descritos, portanto podendo ser aplicados realisticamente em um curto período de tempo por uma equipe; uma história pequena, por se tratar da subjetividade da exposição das imagens e dados aos usuários em momentos específicos e testável, na medida que as ferramentas mencionadas podem ser testadas através dos editores de código a fim de verificar suas funcionalidades integralmente.
 
@@ -117,6 +117,38 @@ Table subscriptions {
 ### 3.3. Wireframes (Semana 03)
 
 *Posicione aqui as imagens do wireframe construído para sua solução e, opcionalmente, o link para acesso (mantenha o link sempre público para visualização).*
+
+#### Flow do Wireframe
+
+![imagem_2025-05-10_181741085](https://github.com/user-attachments/assets/a06c94a5-0c21-4441-9e6e-74291926c9fe)
+
+Este representa o caminho que o usuário comum irá percorrer ao longo do site, tendo a possibilidade inicialmente de acessar a aba sobre do site, e descobrir mais sobre a história deste, ou de imediatamente registrar sua conta com e-mail e senha e acessar a página principal, em que os eventos poderão ser visualizados com clareza com descrições explícitas e informativas. A partir do click no símbolo de perfil da upper bar do site, o usuário também será capaz de acessar seu perfil, onde terá a união de suas informações registradas, incluindo foto, além da lista de eventos dos quais aceitou participar.
+
+### Visão ampliada das abas:
+
+*Tela Inicial: Login*
+
+![imagem_2025-05-10_182537176](https://github.com/user-attachments/assets/75ef29cf-2056-49d8-848a-fa900df711da)
+
+
+*Tela Inicial: Sobre*
+
+![imagem_2025-05-10_182625199](https://github.com/user-attachments/assets/14c103ed-de0b-47d2-8c43-7d954fb382d3)
+
+
+*Tela principal de usabilidade*
+
+![imagem_2025-05-10_182722996](https://github.com/user-attachments/assets/b9197c98-e4eb-43ed-80b4-2ab59924810e)
+
+
+*Tela de perfil mencionada da terceira User Story*
+
+![imagem_2025-05-10_182753723](https://github.com/user-attachments/assets/bf8490da-df69-4ec1-8514-a3c771f59b78)
+
+*Link do figma:* https://www.figma.com/design/IzgFYMhVmIgrSkbYs4mRgH/Ponderada-UX---Wireframe?node-id=0-1&t=MOpiX441b9jTnjpF-1  
+
+Este wireframe se relaciona diretamente às user stories produzidas (majoritariamente US01 e US02), principalmente no quesito de demonstrar funcionalidades de visualização de uma lista de eventos (com título, subtítulo, data, descrição, mídias e organizações responsáveis), inscrição nestes, além da apresentação de um perfil acessível por um click na upper bar, que contém as informações pessoais do usuário (e-mail, documento como cpf, nome), junto dos eventos reunidos em uma seção a fim de fácil acesso.
+
 
 ### 3.4. Guia de estilos (Semana 05)
 
