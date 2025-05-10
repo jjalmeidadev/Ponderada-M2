@@ -122,7 +122,7 @@ Table subscriptions {
 
 ![imagem_2025-05-10_181741085](https://github.com/user-attachments/assets/a06c94a5-0c21-4441-9e6e-74291926c9fe)
 
-Este representa o caminho que o usuário comum irá percorrer ao longo do site, tendo a possibilidade inicialmente de acessar a aba sobre do site, e descobrir mais sobre a história deste, ou de imediatamente registrar sua conta com e-mail e senha e acessar a página principal, em que os eventos poderão ser visualizados com clareza com descrições explícitas e informativas. A partir do click no símbolo de perfil da upper bar do site, o usuário também será capaz de acessar seu perfil, onde terá a união de suas informações registradas, incluindo foto, além da lista de eventos dos quais aceitou participar.
+Este representa o caminho que o usuário comum irá percorrer ao longo do site, tendo a possibilidade inicialmente de acessar a aba sobre da tela inicial, e descobrir mais no que se refere à história deste, ou de imediatamente registrar sua conta com e-mail e senha e acessar a página principal, em que os eventos poderão ser visualizados com clareza, contendo  descrições explícitas e informativas. A partir do click no símbolo de perfil da upper bar, já presente na tela principal, o usuário também será capaz de acessar seu perfil, onde terá a união de suas informações registradas, incluindo foto, além da lista de eventos dos quais aceitou participar.
 
 ### Visão ampliada das abas:
 
