@@ -104,6 +104,8 @@ CREATE TABLE subscriptions (
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
 
+O arquivo "userModel.js" foi adicionado à pasta model, sendo responsável por estabelecer, através dos comandos SQL (CRUD), a seleção de todos os usuários, a especificação dos desejados de acordo com o id, a inserção e atualização de nome e e-mail conforme demanda do usuário e a remoção de usuários de acordo com o id.
+
 ### 3.2. Arquitetura (Semana 5)
 
 ![Screenshot 2025-05-14 13 36 31](https://github.com/user-attachments/assets/b127363a-ccf9-4ffc-929b-ec20d5457c9f)
