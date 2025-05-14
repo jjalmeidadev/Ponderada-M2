@@ -59,44 +59,45 @@ Principais tabelas, que espelham funcionalidades e usuários do website, reunido
 Código SQL utilizado na formação das tabelas:
 ```sql[Untitled.pdf](https://github.com/user-attachments/files/20092713/Untitled.pdf)
 
-Table events {
-  id integer [pk, increment]
-  title varchar(100) [not null]
-  subtitle varchar(100)
-  description text
-  start_date timestamp [not null]
-  end_date timestamp [not null]
-  image_url varchar(100)
-  video_url varchar(100)
-  organization_id integer [ref: > organization.id]
-}
+CREATE TABLE organization (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
 
-Table organization {
-  id integer [pk, increment]
-  name varchar (100) [not null]
-}
+CREATE TABLE events (
+    id INTEGER PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    subtitle VARCHAR(100),
+    description TEXT,
+    start_date TIMESTAMP NOT NULL,
+    end_date TIMESTAMP NOT NULL,
+    image_url VARCHAR(100),
+    video_url VARCHAR(100),
+    organization_id INTEGER REFERENCES organization(id)
+);
 
-Table members {
-  id integer [pk, increment]
-  organization_id integer [ref: > organization.id]
-  user_id integer
-}
+CREATE TABLE members (
+    id INTEGER PRIMARY KEY,
+    organization_id INTEGER REFERENCES organization(id),
+    user_id INTEGER
+);
 
-Table participants {
-  id integer [pk, increment]
-  name varchar(100) [not null]
-  email varchar(100) [not null, unique]
-  document varchar(20) [unique]
-  accepted_events_id boolean [default: false, ref: > events.id]
-}
+CREATE TABLE participants (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    document VARCHAR(20) UNIQUE,
+    accepted_event_id INTEGER REFERENCES events(id)
+);
 
-Table subscriptions {
-  id integer [pk, increment]
-  event_id integer [ref: > events.id]
-  participant_id integer [ref: > participants.id]
-  status varchar(50) [default: 'pending']
-  subscription_date timestamp
-}
+CREATE TABLE subscriptions (
+    id INTEGER PRIMARY KEY,
+    event_id INTEGER REFERENCES events(id),
+    participant_id INTEGER REFERENCES participants(id),
+    status VARCHAR(50) DEFAULT 'pending',
+    subscription_date TIMESTAMP
+);
+
 
 ```
 
