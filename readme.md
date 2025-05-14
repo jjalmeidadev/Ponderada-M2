@@ -147,6 +147,14 @@ Scripts Disponíveis
 * `npm run dev`: Inicia o servidor com `nodemon`, reiniciando automaticamente após alterações no código.
 * `npm run test`: Executa os testes automatizados.
 * `npm run test:coverage`: Executa os testes e gera um relatório de cobertura de código.
+* `npm run migrate`: Executa as migrações localizadas em migrations
+
+**E para testar os endpoints do CRUD:**
+
+Criar uma tarefa (POST /api/tarefas)
+Listar todas as tarefas (GET /api/tarefas)
+Editar uma tarefa (PUT /api/tarefas/:id)
+Excluir uma tarefa (DELETE /api/tarefas/:id)
 
 Estrutura de Diretórios
 -----------------------
