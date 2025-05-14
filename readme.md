@@ -152,8 +152,11 @@ Scripts Disponíveis
 **E para testar os endpoints do CRUD:**
 
 Criar uma tarefa (POST /api/tarefas)
+
 Listar todas as tarefas (GET /api/tarefas)
+
 Editar uma tarefa (PUT /api/tarefas/:id)
+
 Excluir uma tarefa (DELETE /api/tarefas/:id)
 
 Estrutura de Diretórios
