@@ -160,7 +160,18 @@ Este wireframe se relaciona diretamente às user stories produzidas (majoritaria
 
 ### 3.6. WebAPI e endpoints (Semana 05)
 
-*Utilize um link para outra página de documentação contendo a descrição completa de cada endpoint. Ou descreva aqui cada endpoint criado para seu sistema.*  
+- **POST /tarefas**  
+  Cria uma tarefa na interface com os dados requisitados pelo usuário.
+
+- **GET /tarefas**  
+  Exibe todas as tarefas existentes do sistema.
+
+- **PUT /tarefas/:id**  
+  Atualiza os dados de uma tarefa a partir de seu id.
+
+- **DELETE /tarefas/:id**  
+  Deleta uma tarefa do sistema a partir de seu id
+
 
 ### 3.7 Interface e Navegação (Semana 07)
 
