@@ -151,12 +151,41 @@ Este wireframe se relaciona diretamente às user stories produzidas (majoritaria
 
 ### 3.4. Guia de estilos (Semana 05)
 
-*Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
+![imagem_2025-05-23_212849779](https://github.com/user-attachments/assets/bcb5f2f1-194f-42a1-a76f-6783e1a9439a)
+
+![imagem_2025-05-23_213049826](https://github.com/user-attachments/assets/a9bf55f1-02db-4e36-b91d-2c6eaeaeb3be)
+
+![imagem_2025-05-23_213417985](https://github.com/user-attachments/assets/660f85aa-ca80-45c2-8494-9d5d9e3fce5b)
 
 
 ### 3.5. Protótipo de alta fidelidade (Semana 05)
 
-*Posicione aqui algumas imagens demonstrativas de seu protótipo de alta fidelidade e o link para acesso ao protótipo completo (mantenha o link sempre público para visualização).*
+#### Visão com e sem grid na tela principal
+
+![imagem_2025-05-23_213531478](https://github.com/user-attachments/assets/47f4cd34-966b-4f54-9972-4e7db1f7f3b4)
+
+*Tela Inicial: Login*
+
+![imagem_2025-05-23_213852322](https://github.com/user-attachments/assets/f18c29cc-4465-494b-a29a-7cb55420795f)
+
+*Tela Inicial: Sobre*
+
+![imagem_2025-05-23_213932054](https://github.com/user-attachments/assets/835005f4-b4f5-4507-9723-adc884d542b0)
+
+*Tela principal de usabilidade sem grid*
+
+![imagem_2025-05-23_214019936](https://github.com/user-attachments/assets/06ecabcb-cecb-4add-862a-30dfb2ef0584)
+
+*Tela principal de usabilidade com grid*
+
+![imagem_2025-05-23_214120587](https://github.com/user-attachments/assets/3955c8ce-16b2-4dbd-9760-415d19cfda0d)
+
+*Tela de perfil mencionada da terceira User Story*
+
+![imagem_2025-05-23_214211101](https://github.com/user-attachments/assets/fc1400b1-4d27-4717-a6bf-d17c3ac0193f)
+
+*Link do figma:* https://www.figma.com/design/a4YE29BL94Zoz1XG7RHNpG/Ponderada-UX---Modelo-de-Alta-Fidelidade?node-id=0-1&t=9Mqifj9givgQ3taB-1
+
 
 ### 3.6. WebAPI e endpoints (Semana 05)
 
