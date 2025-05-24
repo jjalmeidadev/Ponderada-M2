@@ -115,8 +115,6 @@ A partir do momento em que as operações no controller, como as UPDATE e DELETE
 
 ### 3.3. Wireframes (Semana 03)
 
-*Posicione aqui as imagens do wireframe construído para sua solução e, opcionalmente, o link para acesso (mantenha o link sempre público para visualização).*
-
 #### Flow do Wireframe
 
 ![imagem_2025-05-10_181741085](https://github.com/user-attachments/assets/a06c94a5-0c21-4441-9e6e-74291926c9fe)
