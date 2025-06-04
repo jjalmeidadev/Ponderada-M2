@@ -1,27 +1,56 @@
-<%- include('../components/nav-auth', { active: 'login' }) %>
-    <div class="conteudo">
-        <div class="imagem-fundo"></div>
-        <div class="logo-container">
-            <img src="/assets/image-5WfP97JjYKNdm6g0HWR0sXX40QtNW6.png" alt="IN ORDER Logo" class="logo-image">
-        </div>
-        <div class="ilustracao-pessoas">
-            <img src="/assets/image-Z7e2g0BvvcwVXkRgIhW8f4ZubrwRf1.png" alt="Pessoas" class="imagem-pessoas">
-        </div>
-        <div class="conteudo-direito">
-            <div class="texto-boas-vindas">
-                Sua agenda nunca<br>foi tão organizada.
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <style>
+        .imagem-fundo-login {
+            height: 550px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 36px;
+            margin-left: 302px;
+            width: 1150px;
+        }
+
+        .conteudo {
+            padding-bottom: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../components/nav-auth', { active: 'login' }) %>
+        <div class="conteudo">
+            <div class="imagem-fundo">
+                <img src="/assets/loginsobrebgbox.png" alt="Fundo Login" class="imagem-fundo-login">
             </div>
-            <div class="secao-login">
-                <div class="grupo-formulario">
-                    <label class="rotulo-formulario">E-mail <span class="icone-formulario">📧</span></label>
-                    <input type="email" class="input-formulario" placeholder="Digite aqui...">
+            <div class="logo-container">
+                <img src="/assets/loginlogo.png" alt="IN ORDER Logo" class="logo-image">
+            </div>
+            <div class="ilustracao-pessoas">
+                <img src="/assets/peoplelogin.png" alt="Pessoas" class="imagem-pessoas">
+            </div>
+            <div class="conteudo-direito">
+                <div class="texto-boas-vindas">
+                    Sua agenda nunca<br>foi tão organizada.
                 </div>
-                <div class="grupo-formulario">
-                    <label class="rotulo-formulario">Senha <span class="icone-formulario">🔑</span></label>
-                    <input type="password" class="input-formulario" placeholder="Digite aqui...">
+                <div class="secao-login">
+                    <div class="grupo-formulario">
+                        <label class="rotulo-formulario">E-mail <span class="icone-formulario">📧</span></label>
+                        <input type="email" class="input-formulario" placeholder="Digite aqui...">
+                    </div>
+                    <div class="grupo-formulario">
+                        <label class="rotulo-formulario">Senha <span class="icone-formulario">🔑</span></label>
+                        <input type="password" class="input-formulario" placeholder="Digite aqui...">
+                    </div>
+                    <button class="botao-entrar" onclick="window.location.href='/dashboard'">Entrar</button>
                 </div>
-                <button class="botao-entrar" onclick="window.location.href='/dashboard'">Entrar</button>
             </div>
         </div>
-    </div>
-    <%- include('../components/footer') %>
+        <%- include('../components/footer') %>
+</body>
+
+</html>

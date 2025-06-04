@@ -1,75 +1,103 @@
-<%- include('../components/header-dashboard', { page: 'profile' }) %>
-    <div class="main-content-wrapper">
-        <div class="left-section">
-            <div class="email-container">
-                <div class="form-label-email">E-mail:</div>
-                <input type="email" class="email-input" placeholder="Preencher...">
-            </div>
-            <div class="document-container">
-                <div class="form-label-doc">Documento:</div>
-                <input type="text" class="document-input" placeholder="Preencher...">
-            </div>
-            <div class="inscricoes-container">
-                <div class="form-label-inscricoes">Inscrições:</div>
-                <div class="events-scroll-container">
-                    <div class="event-card">
-                        <div class="event-title">Feira de Carreiras</div>
-                        <div class="event-subtitle">Feira de Oportunidades</div>
-                        <div class="event-description">
-                            Empresas estarão recrutando no local, com oficinas de currículo, palestras sobre carreira e
-                            entrada gratuita para estudantes.
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            /* Prevent browser scrollbars */
+        }
+
+        body {
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../components/header-dashboard', { page: 'profile' }) %>
+        <div class="main-content-wrapper">
+            <div class="left-section">
+                <div class="email-container">
+                    <div class="form-label-email">E-mail:</div>
+                    <input type="email" class="email-input" placeholder="Preencher...">
+                </div>
+                <div class="document-container">
+                    <div class="form-label-doc">Documento:</div>
+                    <input type="text" class="document-input" placeholder="Preencher...">
+                </div>
+                <div class="inscricoes-container">
+                    <div class="form-label-inscricoes">Inscrições:</div>
+                    <div class="events-scroll-container">
+                        <div class="event-card">
+                            <div class="event-title">Feira de Carreiras</div>
+                            <div class="event-subtitle">Feira de Oportunidades</div>
+                            <div class="event-description">
+                                Empresas estarão recrutando no local, com oficinas de currículo, palestras sobre
+                                carreira e
+                                entrada gratuita para estudantes.
+                            </div>
+                            <div class="event-footer">
+                                <span class="event-date">22/05/2025</span>
+                                <span class="event-location">Unifesp</span>
+                            </div>
                         </div>
-                        <div class="event-footer">
-                            <span class="event-date">22/05/2025</span>
-                            <span class="event-location">Unifesp</span>
+                        <div class="event-card">
+                            <div class="event-title">Festival de Arte</div>
+                            <div class="event-subtitle">Arte Urbana</div>
+                            <div class="event-description">
+                                Celebração da arte urbana com murais, oficinas de grafite e apresentações de hip-hop,
+                                promovendo a cultura das ruas.
+                            </div>
+                            <div class="event-footer">
+                                <span class="event-date">15/09/2025</span>
+                                <span class="event-location">CCSP</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-title">Festival de Arte</div>
-                        <div class="event-subtitle">Arte Urbana</div>
-                        <div class="event-description">
-                            Celebração da arte urbana com murais, oficinas de grafite e apresentações de hip-hop,
-                            promovendo a cultura das ruas.
+                        <div class="event-card">
+                            <div class="event-title">Feira Literária</div>
+                            <div class="event-subtitle">Literatura Nacional</div>
+                            <div class="event-description">
+                                Encontro de autores, lançamentos de livros e debates sobre literatura contemporânea
+                                brasileira.
+                            </div>
+                            <div class="event-footer">
+                                <span class="event-date">10/07/2025</span>
+                                <span class="event-location">RBLRJ</span>
+                            </div>
                         </div>
-                        <div class="event-footer">
-                            <span class="event-date">15/09/2025</span>
-                            <span class="event-location">CCSP</span>
-                        </div>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-title">Feira Literária</div>
-                        <div class="event-subtitle">Literatura Nacional</div>
-                        <div class="event-description">
-                            Encontro de autores, lançamentos de livros e debates sobre literatura contemporânea
-                            brasileira.
-                        </div>
-                        <div class="event-footer">
-                            <span class="event-date">10/07/2025</span>
-                            <span class="event-location">RBLRJ</span>
-                        </div>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-title">Convenção de Jogos</div>
-                        <div class="event-subtitle">Jogos Digitais</div>
-                        <div class="event-description">
-                            Apresentações de novos jogos, campeonatos de e-sports e palestras com desenvolvedores
-                            renomados.
-                        </div>
-                        <div class="event-footer">
-                            <span class="event-date">30/04/2025</span>
-                            <span class="event-location">ECN</span>
+                        <div class="event-card">
+                            <div class="event-title">Convenção de Jogos</div>
+                            <div class="event-subtitle">Jogos Digitais</div>
+                            <div class="event-description">
+                                Apresentações de novos jogos, campeonatos de e-sports e palestras com desenvolvedores
+                                renomados.
+                            </div>
+                            <div class="event-footer">
+                                <span class="event-date">30/04/2025</span>
+                                <span class="event-location">ECN</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="right-section">
-            <div class="profile-circle-bg"></div>
-            <div class="profile-circle"></div>
-            <img src="/assets/image-fhQgXJdWUvd5NiPlBkoZscy0QObHCF.png" alt="Perfil" class="profile-image">
-            <div class="profile-name-container">
-                <div class="profile-name">Rogério Dias</div>
+            <div class="right-section">
+                <div class="profile-circle-bg"></div>
+                <div class="profile-circle"></div>
+                <img src="/assets/perfilimg.png" alt="Perfil" class="profile-image">
+                <div class="profile-name-container">
+                    <div class="profile-name">Rogério Dias</div>
+                </div>
             </div>
         </div>
-    </div>
-    <%- include('../components/footer') %>
+        <%- include('../components/footer') %>
+</body>
+
+</html>

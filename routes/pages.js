@@ -1,20 +1,29 @@
 const express = require('express');
 const router = express.Router();
 
+// Home or redirect to login
+router.get('/', (req, res) => {
+  res.redirect('/login');
+});
+
+// Login page
 router.get('/login', (req, res) => {
-    res.render('pages/login', { title: 'InOrder - Login' });
+  res.render('pages/login');
 });
 
-router.get('/sobre', (req, res) => {
-    res.render('pages/sobre', { title: 'InOrder - Sobre' });
-});
-
+// Dashboard page
 router.get('/dashboard', (req, res) => {
-    res.render('pages/dashboard', { title: 'InOrder - Dashboard' });
+  res.render('pages/dashboard');
 });
 
+// Profile page
 router.get('/profile', (req, res) => {
-    res.render('pages/profile', { title: 'InOrder - Perfil', page: 'profile' });
+  res.render('pages/profile');
+});
+
+// Sobre page
+router.get('/sobre', (req, res) => {
+  res.render('pages/sobre');
 });
 
 module.exports = router;
