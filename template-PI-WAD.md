@@ -36,13 +36,14 @@ US03 | Como usuário cadastrado, quero acessar meu perfil com minha lista de eve
 
 A user story "Como participante interessado, quero visualizar a lista de eventos com imagens, descrições e datas, para que eu possa escolher em quais quero me inscrever com base nas informações apresentadas." atende aos critérios INVEST de forma que: seja independente, pela visualização poder ocorrer sem depender de outras funcionalidades externas, como o sistema de inscrição; negociável, de maneira que ajustes possam ser feitos em dimensões de mídias ou no scroll se necessário; valiosa, por tornar a agenda do usuário mais organizada pela natureza de acessibilidade da plataforma; estimável, pelos recursos serem mais simples e detalhadamente descritos, portanto podendo ser aplicados realisticamente em um curto período de tempo por uma equipe; uma história pequena, por se tratar da subjetividade da exposição das imagens e dados aos usuários em momentos específicos e testável, na medida que as ferramentas mencionadas podem ser testadas através dos editores de código a fim de verificar suas funcionalidades integralmente.
 
----
+
 
 ## <a name="c3"></a>3. Projeto da Aplicação Web
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
-![Screenshot 2025-05-07 17 06 01](https://github.com/user-attachments/assets/54a188ca-f2b8-449e-bc2c-dce555483d36)
+![Screenshot 2025-06-05 14 15 13](https://github.com/user-attachments/assets/90ba51a1-b98f-4a0f-8e22-fe685c3f7d45)
+
 
 #### Entidades e Atributos
 
@@ -54,7 +55,6 @@ Principais tabelas que representam funcionalidades e usuários do website:
 | `events`       | `id` (PK, SERIAL), `title` (VARCHAR(100) NOT NULL), `subtitle` (VARCHAR(100)), `description` (VARCHAR(100)), `date` (VARCHAR(100)), `image_path` (VARCHAR(100)), `video_path` (VARCHAR(100)), `organization_id` (FK) |
 | `participants` | `id` (PK, SERIAL), `name` (VARCHAR(100) NOT NULL), `email` (VARCHAR(100) NOT NULL UNIQUE), `password` (VARCHAR(100)), `accepted_event_id` (FK) |
 
----
 
 ### Código SQL utilizado na formação das tabelas e inserções:
 
