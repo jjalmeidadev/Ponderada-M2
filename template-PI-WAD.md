@@ -46,57 +46,64 @@ A user story "Como participante interessado, quero visualizar a lista de eventos
 
 #### Entidades e Atributos
 
-Principais tabelas, que espelham funcionalidades e usuários do website, reunidos:
+Principais tabelas que representam funcionalidades e usuários do website:
 
-| Entidade       | Atributos com Chaves                                                                 |
-|----------------|------------------------------------------------------------------------------------|
-| `events`       | `id` (PK), `title`, `subtitle`, `description`, `start_date`, `end_date`, `image_url`, `video_url` |
-| `organization` | `id` (PK), `name`                                                  |
-| `members`      | `id` (PK), `organization_id` (FK), `user_id` (FK)                       |
-| `participants` | `id` (PK), `name`, `email`, `document` (CPF/RG), `accepted_events_id` (boolean)             |
-| `subscriptions`| `id` (PK), `event_id` (FK), `participant_id` (FK), `status` ("pending"/"accepted"/"rejected"), `subscription_date` |
+| Entidade       | Atributos com Chaves                                                                                      |
+|----------------|---------------------------------------------------------------------------------------------------------|
+| `organization` | `id` (PK, SERIAL), `name` (VARCHAR(100) NOT NULL)                                                       |
+| `events`       | `id` (PK, SERIAL), `title` (VARCHAR(100) NOT NULL), `subtitle` (VARCHAR(100)), `description` (VARCHAR(100)), `date` (VARCHAR(100)), `image_path` (VARCHAR(100)), `video_path` (VARCHAR(100)), `organization_id` (FK) |
+| `participants` | `id` (PK, SERIAL), `name` (VARCHAR(100) NOT NULL), `email` (VARCHAR(100) NOT NULL UNIQUE), `password` (VARCHAR(100)), `accepted_event_id` (FK) |
 
-Código SQL utilizado na formação das tabelas:
-```sql[Untitled.pdf](https://github.com/user-attachments/files/20092713/Untitled.pdf)
+---
 
+### Código SQL utilizado na formação das tabelas e inserções:
+
+```sql
 CREATE TABLE organization (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE events (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     subtitle VARCHAR(100),
-    description TEXT,
-    start_date TIMESTAMP NOT NULL,
-    end_date TIMESTAMP NOT NULL,
-    image_url VARCHAR(100),
-    video_url VARCHAR(100),
+    description VARCHAR(100),
+    date VARCHAR(100),
+    image_path VARCHAR(100),
+    video_path VARCHAR(100),
     organization_id INTEGER REFERENCES organization(id)
 );
 
-CREATE TABLE members (
-    id INTEGER PRIMARY KEY,
-    organization_id INTEGER REFERENCES organization(id),
-    user_id INTEGER
-);
-
 CREATE TABLE participants (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
-    document VARCHAR(20) UNIQUE,
+    password VARCHAR(100),
     accepted_event_id INTEGER REFERENCES events(id)
 );
 
-CREATE TABLE subscriptions (
-    id INTEGER PRIMARY KEY,
-    event_id INTEGER REFERENCES events(id),
-    participant_id INTEGER REFERENCES participants(id),
-    status VARCHAR(50) DEFAULT 'pending',
-    subscription_date TIMESTAMP
-);
+INSERT INTO organization (name) 
+VALUES ('Unifesp'),
+       ('CCSP'),
+       ('UFMG'),
+       ('RBLRJ'),
+       ('ECN');
+
+INSERT INTO events (title, subtitle, description, date, image_path, organization_id) 
+VALUES
+  ('🧭 Feira de Carreiras', 'Feira de Oportunidades', 'Empresas estarão recrutando no local, com oficinas de currículo, palestras sobre carreira e entrada gratuita para estudantes.', '22/05/2025', '/assets/imgfeat.png', 16),
+
+  ('Festival de Arte', 'Arte Urbana', 'Celebração da arte urbana com murais, oficinas de grafite e apresentações de hip-hop, promovendo a cultura das ruas.', '15/09/2025', '/assets/festivalarte.png', 17),
+
+  ('Feira de Carreiras', 'Carreiras Universitárias', 'Evento gratuito com palestras sobre mercado de trabalho, oficinas de currículo e networking com empresas.', '22/08/2025', '/assets/feiracarreiras.png', 18),
+
+  ('Feira Literária', 'Feira Literária Nacional', 'Encontro de autores, lançamentos de livros e debates sobre literatura.', '10/07/2025', '/assets/feiraliteraria.png', 19),
+
+  ('Convenção de Jogos', 'Jogos Digitais', 'Apresentações de novos jogos, campeonatos de e-sports e palestras com desenvolvedores.', '30/04/2025', '/assets/convecaojogos.png', 20);
+
+INSERT INTO participants (name, email, password) 
+VALUES ('Rogério Dias', 'rogeriodias@gmail.com', '321');
 
 
 ```
