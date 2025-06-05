@@ -116,7 +116,8 @@ O arquivo "userModel.js" foi adicionado à pasta model, sendo responsável por e
 
 ### 3.2. Arquitetura (Semana 5)
 
-![Screenshot 2025-05-14 13 36 31](https://github.com/user-attachments/assets/b127363a-ccf9-4ffc-929b-ec20d5457c9f)
+![Screenshot 2025-06-05 14 30 16](https://github.com/user-attachments/assets/b4525297-494b-4988-9705-8caf7a9aedce)
+
 
 A partir do momento em que as operações no controller, como as UPDATE e DELETE exemplificadas com as funções editarEvento() e deletarEvento(), são requisitadas, este buscará as informações necessárias para as alterações diretamente no banco de dados, ao estabelecer uma conexão com o Model (no caso, atributos como title e id). Feitas as mudanças, com o model atualizado, estas serão transmitidas através do sistema frontend à interface do usuário, já disponibilizadas de forma apresentável (como visto na aba de eventos do wireframe).
 
