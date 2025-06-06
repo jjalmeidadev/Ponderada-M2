@@ -42,18 +42,18 @@ A user story "Como participante interessado, quero visualizar a lista de eventos
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
-![Screenshot 2025-06-05 14 15 13](https://github.com/user-attachments/assets/90ba51a1-b98f-4a0f-8e22-fe685c3f7d45)
+![Screenshot 2025-06-06 10 18 57](https://github.com/user-attachments/assets/dff62f39-4c45-4530-a5f4-d78c2d858af9)
 
 
 #### Entidades e Atributos
 
 Principais tabelas que representam funcionalidades e usuários do website:
 
-| Entidade       | Atributos com Chaves                                                                                      |
-|----------------|---------------------------------------------------------------------------------------------------------|
-| `organization` | `id` (PK, SERIAL), `name` (VARCHAR(100) NOT NULL)                                                       |
-| `events`       | `id` (PK, SERIAL), `title` (VARCHAR(100) NOT NULL), `subtitle` (VARCHAR(100)), `description` (VARCHAR(100)), `date` (VARCHAR(100)), `image_path` (VARCHAR(100)), `video_path` (VARCHAR(100)), `organization_id` (FK) |
-| `participants` | `id` (PK, SERIAL), `name` (VARCHAR(100) NOT NULL), `email` (VARCHAR(100) NOT NULL UNIQUE), `password` (VARCHAR(100)), `accepted_event_id` (FK) |
+| Entidade       | Atributos com Chaves                                                                                                                                              |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `organization` | `id` (PK, SERIAL), `name` (TEXT NOT NULL UNIQUE)                                                                                                                  |
+| `events`       | `id` (PK, SERIAL), `title` (TEXT NOT NULL), `subtitle` (TEXT), `description` (TEXT), `date` (TEXT), `image_path` (TEXT), `video_path` (TEXT), `organization_name` (FK para `organization(name)`) |
+| `participants` | `id` (PK, SERIAL), `name` (TEXT NOT NULL), `email` (TEXT NOT NULL UNIQUE), `password` (TEXT), `accepted_event_id` (FK para `events(id)`)                          |
 
 
 ### Código SQL utilizado na formação das tabelas e inserções:
@@ -61,46 +61,49 @@ Principais tabelas que representam funcionalidades e usuários do website:
 ```sql
 CREATE TABLE organization (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL
+    name text NOT NULL UNIQUE
 );
+
 
 CREATE TABLE events (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(100) NOT NULL,
-    subtitle VARCHAR(100),
-    description VARCHAR(100),
-    date VARCHAR(100),
-    image_path VARCHAR(100),
-    video_path VARCHAR(100),
-    organization_id INTEGER REFERENCES organization(id)
+    title text NOT NULL,
+    subtitle text,
+    description text,
+    date text,
+    image_path text,
+    video_path text,
+    organization_name text REFERENCES organization(name)
 );
 
 CREATE TABLE participants (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(100),
+    name text NOT NULL,
+    email text NOT NULL UNIQUE,
+    password text,
     accepted_event_id INTEGER REFERENCES events(id)
 );
 
+
 INSERT INTO organization (name) 
 VALUES ('Unifesp'),
-       ('CCSP'),
-       ('UFMG'),
-       ('RBLRJ'),
-       ('ECN');
+('CCSP'),
+('UFMG'),
+('RBLRJ'),
+('ECN');
 
-INSERT INTO events (title, subtitle, description, date, image_path, organization_id) 
+
+INSERT INTO events (title, subtitle, description, date, image_path, organization_name) 
 VALUES
-  ('🧭 Feira de Carreiras', 'Feira de Oportunidades', 'Empresas estarão recrutando no local, com oficinas de currículo, palestras sobre carreira e entrada gratuita para estudantes.', '22/05/2025', '/assets/imgfeat.png', 16),
+  ('🧭 Feira de Carreiras', 'Feira de Oportunidades', 'Empresas estarão recrutando no local, com oficinas de currículo, palestras sobre carreira e entrada gratuita para estudantes.', '22/05/2025', '/assets/imgfeat.png', 'Unifesp'),
 
-  ('Festival de Arte', 'Arte Urbana', 'Celebração da arte urbana com murais, oficinas de grafite e apresentações de hip-hop, promovendo a cultura das ruas.', '15/09/2025', '/assets/festivalarte.png', 17),
+  ('Festival de Arte', 'Arte Urbana', 'Celebração da arte urbana com murais, oficinas de grafite e apresentações de hip-hop, promovendo a cultura das ruas.', '15/09/2025', '/assets/festivalarte.png', 'CCSP'),
 
-  ('Feira de Carreiras', 'Carreiras Universitárias', 'Evento gratuito com palestras sobre mercado de trabalho, oficinas de currículo e networking com empresas.', '22/08/2025', '/assets/feiracarreiras.png', 18),
+  ('Feira de Carreiras', 'Carreiras Universitárias', 'Evento gratuito com palestras sobre mercado de trabalho, oficinas de currículo e networking com empresas.', '22/08/2025', '/assets/feiracarreiras.png', 'UFMG'),
 
-  ('Feira Literária', 'Feira Literária Nacional', 'Encontro de autores, lançamentos de livros e debates sobre literatura.', '10/07/2025', '/assets/feiraliteraria.png', 19),
+  ('Feira Literária', 'Feira Literária Nacional', 'Encontro de autores, lançamentos de livros e debates sobre literatura.', '10/07/2025', '/assets/feiraliteraria.png', 'RBLRJ'),
 
-  ('Convenção de Jogos', 'Jogos Digitais', 'Apresentações de novos jogos, campeonatos de e-sports e palestras com desenvolvedores.', '30/04/2025', '/assets/convecaojogos.png', 20);
+  ('Convenção de Jogos', 'Jogos Digitais', 'Apresentações de novos jogos, campeonatos de e-sports e palestras com desenvolvedores.', '30/04/2025', '/assets/convecaojogos.png', 'ECN');
 
 INSERT INTO participants (name, email, password) 
 VALUES ('Rogério Dias', 'rogeriodias@gmail.com', '321');
@@ -116,7 +119,7 @@ O arquivo "userModel.js" foi adicionado à pasta model, sendo responsável por e
 
 ### 3.2. Arquitetura (Semana 5)
 
-![Screenshot 2025-06-05 14 30 16](https://github.com/user-attachments/assets/b4525297-494b-4988-9705-8caf7a9aedce)
+![Screenshot 2025-06-06 10 20 58](https://github.com/user-attachments/assets/c4987db6-298d-4a92-97ba-c013bf285fbe)
 
 
 A partir do momento em que as operações no controller, como as UPDATE e DELETE exemplificadas com as funções editarEvento() e deletarEvento(), são requisitadas, este buscará as informações necessárias para as alterações diretamente no banco de dados, ao estabelecer uma conexão com o Model (no caso, atributos como title e id). Feitas as mudanças, com o model atualizado, estas serão transmitidas através do sistema frontend à interface do usuário, já disponibilizadas de forma apresentável (como visto na aba de eventos do wireframe).
