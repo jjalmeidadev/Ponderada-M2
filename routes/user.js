@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-const userService = require('../services/userService'); // Add this line
+const userService = require('../services/userService');
 
 // Middleware to set req.user if logged in
 router.use(async (req, res, next) => {
@@ -18,32 +18,12 @@ router.use(async (req, res, next) => {
   next();
 });
 
-// Home or redirect to login
-router.get('/', (req, res) => {
-  res.redirect('/login');
-});
-
-// Login page
-router.get('/login', (req, res) => {
-  res.render('pages/login', { error: null });
-});
-
 // Dashboard page (protected)
 router.get('/dashboard', (req, res, next) => {
-  if (!req.session.userId || !req.user) {
+  if (!req.session.userId) {
     return res.redirect('/login');
   }
   next();
 }, userController.dashboard);
-
-// Profile page
-router.get('/profile', (req, res) => {
-  res.render('pages/profile', { user: req.user });
-});
-
-// Sobre page
-router.get('/sobre', (req, res) => {
-  res.render('pages/sobre', { user: req.user });
-});
 
 module.exports = router;

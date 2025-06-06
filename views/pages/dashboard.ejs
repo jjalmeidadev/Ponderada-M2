@@ -23,127 +23,92 @@
         body::-webkit-scrollbar {
             display: none;
         }
+
+        .evento-destaque {
+            margin-top: 48px;
+            margin-left: 90px;
+        }
     </style>
 </head>
 
 <body>
     <%- include('../components/header-dashboard') %>
-        <div class="conteudo-principal">
-            <!-- Evento em destaque -->
+        <!-- Evento em destaque (first event) -->
+        <% if (events && events.length> 0) { %>
             <div class="evento-destaque">
                 <div class="conteudo-destaque">
-                    <h1 class="titulo-destaque">🧭 Feira de Carreiras</h1>
-                    <h2 class="subtitulo-destaque">Feira de Oportunidades</h2>
-                    <div class="data-destaque">22/05/2025</div>
-                    <div class="local-destaque">Unifesp</div>
+                    <h1 class="titulo-destaque">
+                        <%= events[0].title %>
+                    </h1>
+                    <h2 class="subtitulo-destaque">
+                        <%= events[0].subtitle %>
+                    </h2>
+                    <div class="data-destaque">
+                        <%= events[0].date %>
+                    </div>
+                    <div class="local-destaque">
+                        <%= events[0].organization ? events[0].organization.name : (events[0].organization_name || '' )
+                            %>
+                    </div>
                     <p class="descricao-destaque">
-                        Empresas estarão recrutando no local, com oficinas de currículo, palestras sobre carreira e
-                        entrada
-                        gratuita para estudantes.
+                        <%= events[0].description %>
                     </p>
                     <a href="#" class="botao-destaque">Inscrever-se</a>
                 </div>
-                <img src="/assets/imgfeat.png" alt="Feira de Carreiras" class="imagem-destaque">
+                <img src="<%= events[0].image_path %>" alt="<%= events[0].title %>" class="imagem-destaque">
             </div>
-            <!-- Grade de eventos -->
-            <div class="grade-eventos">
-                <!-- Festival de Arte -->
-                <div class="cartao-evento">
-                    <img src="/assets/festivalarte.png" alt="Festival de Arte" class="imagem-evento">
-                    <div class="conteudo-evento">
-                        <h3 class="titulo-evento">Festival de Arte</h3>
-                        <h4 class="subtitulo-evento">Arte Urbana</h4>
-                        <p class="descricao-evento">
-                            Celebração da arte urbana com murais, oficinas de grafite e apresentações de hip-hop,
-                            promovendo
-                            a cultura das ruas.
-                        </p>
-                        <div class="rodape-evento">
-                            <div>
-                                <div class="data-evento">15/09/2025</div>
-                                <div class="local-evento">CCSP</div>
+            <% } %>
+                <!-- Grade de eventos (remaining events) -->
+                <div class="grade-eventos">
+                    <% if (events && events.length> 1) {
+                        for (let i = 1; i < events.length; i++) { const event=events[i]; %>
+                            <div class="cartao-evento">
+                                <img src="<%= event.image_path %>" alt="<%= event.title %>" class="imagem-evento">
+                                <div class="conteudo-evento">
+                                    <h3 class="titulo-evento">
+                                        <%= event.title %>
+                                    </h3>
+                                    <h4 class="subtitulo-evento">
+                                        <%= event.subtitle %>
+                                    </h4>
+                                    <p class="descricao-evento">
+                                        <%= event.description %>
+                                    </p>
+                                    <div class="rodape-evento">
+                                        <div>
+                                            <div class="data-evento">
+                                                <%= event.date %>
+                                            </div>
+                                            <div class="local-evento">
+                                                <%= event.organization ? event.organization.name :
+                                                    (event.organization_name || '' ) %>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="botao-evento">Inscrever-se</a>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="#" class="botao-evento">Inscrever-se</a>
-                        </div>
-                    </div>
+                            <% } } %>
                 </div>
-                <!-- Feira de Carreiras Universitárias -->
-                <div class="cartao-evento">
-                    <img src="/assets/feiracarreiras.png" alt="Feira de Carreiras" class="imagem-evento">
-                    <div class="conteudo-evento">
-                        <h3 class="titulo-evento">Feira de Carreiras</h3>
-                        <h4 class="subtitulo-evento">Carreiras Universitárias</h4>
-                        <p class="descricao-evento">
-                            Evento gratuito com palestras sobre mercado de trabalho, oficinas de currículo e networking
-                            com
-                            empresas.
-                        </p>
-                        <div class="rodape-evento">
-                            <div>
-                                <div class="data-evento">22/08/2025</div>
-                                <div class="local-evento">UFMG</div>
-                            </div>
-                            <a href="#" class="botao-evento">Inscrever-se</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Feira Literária -->
-                <div class="cartao-evento">
-                    <img src="/assets/feiraliteraria.png" alt="Feira Literária" class="imagem-evento">
-                    <div class="conteudo-evento">
-                        <h3 class="titulo-evento">Feira Literária</h3>
-                        <h4 class="subtitulo-evento">Feira Literária Nacional</h4>
-                        <p class="descricao-evento">
-                            Encontro de autores, lançamentos de livros e debates sobre literatura.
-                        </p>
-                        <div class="rodape-evento">
-                            <div>
-                                <div class="data-evento">10/07/2025</div>
-                                <div class="local-evento">RBLRJ</div>
-                            </div>
-                            <a href="#" class="botao-evento">Inscrever-se</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Convenção de Jogos -->
-                <div class="cartao-evento">
-                    <img src="/assets/convecaojogos.png" alt="Convenção de Jogos" class="imagem-evento">
-                    <div class="conteudo-evento">
-                        <h3 class="titulo-evento">Convenção de Jogos</h3>
-                        <h4 class="subtitulo-evento">Jogos Digitais</h4>
-                        <p class="descricao-evento">
-                            Apresentações de novos jogos, campeonatos de e-sports e palestras com desenvolvedores.
-                        </p>
-                        <div class="rodape-evento">
-                            <div>
-                                <div class="data-evento">30/04/2025</div>
-                                <div class="local-evento">ECN</div>
-                            </div>
-                            <a href="#" class="botao-evento">Inscrever-se</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="indicador-rolagem"></div>
-        <%- include('../components/footer') %>
-            <script>
-                function atualizarIndicadorRolagem() {
-                    const indicador = document.querySelector('.indicador-rolagem');
-                    const scrollContainer = document.body;
-                    const alturaScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
-                    const scrollTop = scrollContainer.scrollTop;
-                    const alturaIndicador = Math.max((scrollContainer.clientHeight / scrollContainer.scrollHeight) * scrollContainer.clientHeight, 40);
-                    const topoIndicador = (scrollTop / alturaScroll) * (scrollContainer.clientHeight - alturaIndicador);
+                <div class="indicador-rolagem"></div>
+                <%- include('../components/footer') %>
+                    <script>
+                        function atualizarIndicadorRolagem() {
+                            const indicador = document.querySelector('.indicador-rolagem');
+                            const scrollContainer = document.body;
+                            const alturaScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+                            const scrollTop = scrollContainer.scrollTop;
+                            const alturaIndicador = Math.max((scrollContainer.clientHeight / scrollContainer.scrollHeight) * scrollContainer.clientHeight, 40);
+                            const topoIndicador = (scrollTop / alturaScroll) * (scrollContainer.clientHeight - alturaIndicador);
 
-                    indicador.style.height = alturaIndicador + 'px';
-                    indicador.style.top = topoIndicador + 'px';
-                }
+                            indicador.style.height = alturaIndicador + 'px';
+                            indicador.style.top = topoIndicador + 'px';
+                        }
 
-                document.body.addEventListener('scroll', atualizarIndicadorRolagem);
-                window.addEventListener('resize', atualizarIndicadorRolagem);
-                document.addEventListener('DOMContentLoaded', atualizarIndicadorRolagem);
-            </script>
+                        document.body.addEventListener('scroll', atualizarIndicadorRolagem);
+                        window.addEventListener('resize', atualizarIndicadorRolagem);
+                        document.addEventListener('DOMContentLoaded', atualizarIndicadorRolagem);
+                    </script>
 </body>
 
 </html>

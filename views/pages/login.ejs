@@ -38,15 +38,26 @@
                     Sua agenda nunca<br>foi tão organizada.
                 </div>
                 <div class="secao-login">
-                    <div class="grupo-formulario">
-                        <label class="rotulo-formulario">E-mail <span class="icone-formulario">📧</span></label>
-                        <input type="email" class="input-formulario" placeholder="Digite aqui...">
-                    </div>
-                    <div class="grupo-formulario">
-                        <label class="rotulo-formulario">Senha <span class="icone-formulario">🔑</span></label>
-                        <input type="password" class="input-formulario" placeholder="Digite aqui...">
-                    </div>
-                    <button class="botao-entrar" onclick="window.location.href='/dashboard'">Entrar</button>
+                    <% if (error) { %>
+                        <p style="color: #957406; margin-left:25px;">
+                            <%= error %>
+                        </p>
+                        <% } %>
+                            <form method="POST" action="/login">
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">E-mail <span
+                                            class="icone-formulario">📧</span></label>
+                                    <input type="email" name="email" class="input-formulario"
+                                        placeholder="Digite aqui..." required>
+                                </div>
+                                <div class="grupo-formulario">
+                                    <label class="rotulo-formulario">Senha <span
+                                            class="icone-formulario">🔑</span></label>
+                                    <input type="password" name="password" class="input-formulario"
+                                        placeholder="Digite aqui..." required>
+                                </div>
+                                <button type="submit" class="botao-entrar">Entrar</button>
+                            </form>
                 </div>
             </div>
         </div>

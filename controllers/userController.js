@@ -1,6 +1,7 @@
 // controllers/userController.js
 
 const userService = require('../services/userService');
+const eventService = require('../services/eventService'); // Add this line
 
 const getAllUsers = async (req, res) => {
   try {
@@ -61,10 +62,47 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const showLogin = (req, res) => {
+  res.render('pages/login', { error: null });
+};
+
+const login = async (req, res) => {
+  const { email, password } = req.body;
+  const user = await userService.authenticate(email, password);
+  if (user) {
+    const fullUser = await userService.getUserById(user.id || user.user_id);
+    if (fullUser) {
+      req.session.userId = fullUser.id || fullUser.user_id;
+      return req.session.save(() => {
+        res.redirect('/dashboard');
+      });
+    }
+  }
+  res.render('pages/login', { error: 'Informações inválidas' });
+};
+
+const logout = (req, res) => {
+  req.session.destroy(() => res.redirect('/login'));
+};
+
+const dashboard = async (req, res) => {
+  let events = [];
+  try {
+    events = await eventService.getAllEvents();
+  } catch (err) {
+    events = [];
+  }
+  res.render('pages/dashboard', { events: events || [], user: req.user });
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  showLogin,
+  login,
+  logout,
+  dashboard
 };
