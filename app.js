@@ -1,18 +1,19 @@
 const express = require('express');
 const path = require('path');
-const session = require('express-session'); // Add this line
+const session = require('express-session');
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Add session middleware
+// Configuração de sessão
 app.use(session({
-  secret: '123', 
+  secret: '123', // Chave para sessão
   resave: false,
   saveUninitialized: false
 }));
 
+// Rotas principais
 const pagesRouter = require('./routes/pages');
 const userRoutes = require('./routes/userRoutes');
 

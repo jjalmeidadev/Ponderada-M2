@@ -16,45 +16,23 @@ router.use(async (req, res, next) => {
   }
   next();
 });
-
-router.get('/', (req, res) => {
-  res.redirect('/login');
-});
-
-router.get('/login', (req, res) => {
-  res.render('pages/login', { error: null });
-});
-
+router.get('/', (req, res) => res.redirect('/login'));
+router.get('/login', (req, res) => res.render('pages/login', { error: null }));
 router.get('/dashboard', (req, res, next) => {
-  if (!req.session.userId || !req.user) {
-    return res.redirect('/login');
-  }
+  if (!req.session.userId || !req.user) return res.redirect('/login');
   next();
 }, userController.dashboard);
-
 router.get('/profile', (req, res) => {
-  if (!req.session.subscribedEvents) {
-    req.session.subscribedEvents = [];
-  }
+  if (!req.session.subscribedEvents) req.session.subscribedEvents = [];
   console.log("Enviando para profile:", req.session.subscribedEvents);
-  res.render('pages/profile', { 
-    subscribedEvents: req.session.subscribedEvents,
-    user: req.user || null 
-  });
+  res.render('pages/profile', { subscribedEvents: req.session.subscribedEvents, user: req.user || null });
 });
-
-router.get('/sobre', (req, res) => {
-  res.render('pages/sobre', { user: req.user });
-});
-
+router.get('/sobre', (req, res) => res.render('pages/sobre', { user: req.user }));
 router.post('/subscribe', (req, res) => {
-  if (!req.session.subscribedEvents) {
-    req.session.subscribedEvents = [];
-  }
+  if (!req.session.subscribedEvents) req.session.subscribedEvents = [];
   console.log("Received event:", req.body.event);
   req.session.subscribedEvents.push(req.body.event);
   console.log("Sessão atualizada:", req.session.subscribedEvents);
   res.json({ success: true });
 });
-
 module.exports = router;

@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-// Roteamento para páginas dinâmicas
+// Roteamento para páginas
 router.get('/', (req, res) => {
+  // Renderiza página inicial usando layout
   res.render(path.join(__dirname, '../views/layout/main'), {
     pageTitle: 'Página Inicial',
     content: path.join(__dirname, '../views/pages/page1')
@@ -17,6 +18,5 @@ router.get('/about', (req, res) => {
   });
 });
 
-// Adicione outras rotas conforme necessário
 
 module.exports = router;

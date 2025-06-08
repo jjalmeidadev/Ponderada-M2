@@ -1,5 +1,3 @@
-profile.ejs
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,13 +6,13 @@ profile.ejs
     <title>Perfil</title>
     <link rel="stylesheet" href="/styles/main.css">
     <style>
+        /* Estilos essenciais para a página de Perfil */
         html,
         body {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden;
-            /* Prevent browser scrollbars */
         }
 
         body {
@@ -26,6 +24,7 @@ profile.ejs
 <body>
     <%- include('../components/header-dashboard.ejs', { page: 'profile' }) %>
         <div class="main-content-wrapper">
+            <!-- Seção de informações e inscrições -->
             <div class="left-section">
                 <div class="email-container">
                     <div class="form-label-email">E-mail:</div>
@@ -63,9 +62,9 @@ profile.ejs
                     </div>
                 </div>
             </div>
+            <!-- Seção de perfil -->
             <div class="right-section">
                 <div class="profile-circle-bg"></div>
-                <div class="profile-circle"></div>
                 <img src="/assets/perfilimg.png" alt="Perfil" class="profile-image">
                 <div class="profile-name-container">
                     <div class="profile-name">Rogério Dias</div>

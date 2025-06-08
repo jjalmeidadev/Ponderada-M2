@@ -3,8 +3,8 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 const userService = require('../services/userService');
 
-// Middleware to set req.user if logged in
 router.use(async (req, res, next) => {
+  // Atribui o objeto usuário a partir da sessão, se disponível
   if (req.session && req.session.userId) {
     try {
       const user = await userService.getUserById(req.session.userId);
@@ -17,12 +17,8 @@ router.use(async (req, res, next) => {
   }
   next();
 });
-
-// Dashboard page (protected)
 router.get('/dashboard', (req, res, next) => {
-  if (!req.session.userId) {
-    return res.redirect('/login');
-  }
+  if (!req.session.userId) return res.redirect('/login');
   next();
 }, userController.dashboard);
 
