@@ -107,12 +107,19 @@ meu-projeto/
 2. **Instalar as dependências:**
     
 ```bash
-npm install
+npm install express
 ```
     
 3. **Configurar o arquivo `.env`:**
     
 Renomeie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente necessárias, como as configurações do banco de dados PostgreSQL.
+
+Formato:
+DB_HOST = 
+DB_PORT = 
+DB_USER = 
+DB_PASSWORD = 
+DB_DATABASE = 
     
 
 Configuração do Banco de Dados
@@ -148,6 +155,7 @@ Scripts Disponíveis
 * `npm run test`: Executa os testes automatizados.
 * `npm run test:coverage`: Executa os testes e gera um relatório de cobertura de código.
 * `npm run migrate`: Executa as migrações localizadas em migrations
+*`node server.js`: Executa o servidor local
 
 **E para testar os endpoints do CRUD:**
 

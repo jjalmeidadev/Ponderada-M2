@@ -53,7 +53,8 @@
                     <p class="descricao-destaque">
                         <%= events[0].description %>
                     </p>
-                    <a href="#" class="botao-destaque">Inscrever-se</a>
+                    <a href="#" class="botao-destaque"
+                        onclick='subscribeEvent(<%- JSON.stringify(events[0]) %>); return false;'>Inscrever-se</a>
                 </div>
                 <img src="<%= events[0].image_path %>" alt="<%= events[0].title %>" class="imagem-destaque">
             </div>
@@ -84,7 +85,8 @@
                                                     (event.organization_name || '' ) %>
                                             </div>
                                         </div>
-                                        <a href="#" class="botao-evento">Inscrever-se</a>
+                                        <a href="#" class="botao-evento"
+                                            onclick='subscribeEvent(<%- JSON.stringify(event) %>); return false;'>Inscrever-se</a>
                                     </div>
                                 </div>
                             </div>
@@ -92,23 +94,26 @@
                 </div>
                 <div class="indicador-rolagem"></div>
                 <%- include('../components/footer') %>
-                    <script>
-                        function atualizarIndicadorRolagem() {
-                            const indicador = document.querySelector('.indicador-rolagem');
-                            const scrollContainer = document.body;
-                            const alturaScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
-                            const scrollTop = scrollContainer.scrollTop;
-                            const alturaIndicador = Math.max((scrollContainer.clientHeight / scrollContainer.scrollHeight) * scrollContainer.clientHeight, 40);
-                            const topoIndicador = (scrollTop / alturaScroll) * (scrollContainer.clientHeight - alturaIndicador);
-
-                            indicador.style.height = alturaIndicador + 'px';
-                            indicador.style.top = topoIndicador + 'px';
-                        }
-
-                        document.body.addEventListener('scroll', atualizarIndicadorRolagem);
-                        window.addEventListener('resize', atualizarIndicadorRolagem);
-                        document.addEventListener('DOMContentLoaded', atualizarIndicadorRolagem);
-                    </script>
+                    <button id="subscribeBtn" data-title="Meu Evento" data-subtitle="Subtítulo"
+                        data-description="Detalhes do evento">Inscrever-se</button>
+                        <script>
+                            function subscribeEvent(event) {
+                                fetch('/subscribe', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    credentials: 'same-origin', // Importante para manter sessão
+                                    body: JSON.stringify({ event })
+                                }).then(res => res.json())
+                                    .then(data => {
+                                        if (data.success) {
+                                            alert('Inscrição realizada!');
+                                        }
+                                    });
+                            }
+                        </script>
+                          
 </body>
 
 </html>

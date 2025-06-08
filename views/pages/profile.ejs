@@ -1,3 +1,5 @@
+profile.ejs
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,7 +24,7 @@
 </head>
 
 <body>
-    <%- include('../components/header-dashboard', { page: 'profile' }) %>
+    <%- include('../components/header-dashboard.ejs', { page: 'profile' }) %>
         <div class="main-content-wrapper">
             <div class="left-section">
                 <div class="email-container">
@@ -36,55 +38,28 @@
                 <div class="inscricoes-container">
                     <div class="form-label-inscricoes">Inscrições:</div>
                     <div class="events-scroll-container">
-                        <div class="event-card">
-                            <div class="event-title">Feira de Carreiras</div>
-                            <div class="event-subtitle">Feira de Oportunidades</div>
-                            <div class="event-description">
-                                Empresas estarão recrutando no local, com oficinas de currículo, palestras sobre
-                                carreira e
-                                entrada gratuita para estudantes.
-                            </div>
-                            <div class="event-footer">
-                                <span class="event-date">22/05/2025</span>
-                                <span class="event-location">Unifesp</span>
-                            </div>
-                        </div>
-                        <div class="event-card">
-                            <div class="event-title">Festival de Arte</div>
-                            <div class="event-subtitle">Arte Urbana</div>
-                            <div class="event-description">
-                                Celebração da arte urbana com murais, oficinas de grafite e apresentações de hip-hop,
-                                promovendo a cultura das ruas.
-                            </div>
-                            <div class="event-footer">
-                                <span class="event-date">15/09/2025</span>
-                                <span class="event-location">CCSP</span>
-                            </div>
-                        </div>
-                        <div class="event-card">
-                            <div class="event-title">Feira Literária</div>
-                            <div class="event-subtitle">Literatura Nacional</div>
-                            <div class="event-description">
-                                Encontro de autores, lançamentos de livros e debates sobre literatura contemporânea
-                                brasileira.
-                            </div>
-                            <div class="event-footer">
-                                <span class="event-date">10/07/2025</span>
-                                <span class="event-location">RBLRJ</span>
-                            </div>
-                        </div>
-                        <div class="event-card">
-                            <div class="event-title">Convenção de Jogos</div>
-                            <div class="event-subtitle">Jogos Digitais</div>
-                            <div class="event-description">
-                                Apresentações de novos jogos, campeonatos de e-sports e palestras com desenvolvedores
-                                renomados.
-                            </div>
-                            <div class="event-footer">
-                                <span class="event-date">30/04/2025</span>
-                                <span class="event-location">ECN</span>
-                            </div>
-                        </div>
+                        <% let events=(typeof subscribedEvents !=='undefined' ) ? subscribedEvents : []; %>
+                            <% if (events.length> 0) { %>
+                                <% events.forEach(function(event) { %>
+                                    <div class="event-card">
+                                        <div class="event-title">
+                                            <%= event.title %>
+                                        </div>
+                                        <% if (event.subtitle) { %>
+                                            <div class="event-subtitle">
+                                                <%= event.subtitle %>
+                                            </div>
+                                            <% } %>
+                                                <% if (event.description) { %>
+                                                    <div class="event-description">
+                                                        <%= event.description %>
+                                                    </div>
+                                                    <% } %>
+                                    </div>
+                                    <% }); %>
+                                        <% } else { %>
+                                            <div>Nenhuma inscrição encontrada.</div>
+                                            <% } %>
                     </div>
                 </div>
             </div>

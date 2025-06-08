@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-const userService = require('../services/userService'); // Add this line
+const userService = require('../services/userService');
 
-// Middleware to set req.user if logged in
 router.use(async (req, res, next) => {
   if (req.session && req.session.userId) {
     try {
@@ -18,17 +17,14 @@ router.use(async (req, res, next) => {
   next();
 });
 
-// Home or redirect to login
 router.get('/', (req, res) => {
   res.redirect('/login');
 });
 
-// Login page
 router.get('/login', (req, res) => {
   res.render('pages/login', { error: null });
 });
 
-// Dashboard page (protected)
 router.get('/dashboard', (req, res, next) => {
   if (!req.session.userId || !req.user) {
     return res.redirect('/login');
@@ -36,14 +32,29 @@ router.get('/dashboard', (req, res, next) => {
   next();
 }, userController.dashboard);
 
-// Profile page
 router.get('/profile', (req, res) => {
-  res.render('pages/profile', { user: req.user });
+  if (!req.session.subscribedEvents) {
+    req.session.subscribedEvents = [];
+  }
+  console.log("Enviando para profile:", req.session.subscribedEvents);
+  res.render('pages/profile', { 
+    subscribedEvents: req.session.subscribedEvents,
+    user: req.user || null 
+  });
 });
 
-// Sobre page
 router.get('/sobre', (req, res) => {
   res.render('pages/sobre', { user: req.user });
+});
+
+router.post('/subscribe', (req, res) => {
+  if (!req.session.subscribedEvents) {
+    req.session.subscribedEvents = [];
+  }
+  console.log("Received event:", req.body.event);
+  req.session.subscribedEvents.push(req.body.event);
+  console.log("Sessão atualizada:", req.session.subscribedEvents);
+  res.json({ success: true });
 });
 
 module.exports = router;

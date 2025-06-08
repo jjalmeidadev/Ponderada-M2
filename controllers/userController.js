@@ -1,7 +1,7 @@
 // controllers/userController.js
 
 const userService = require('../services/userService');
-const eventService = require('../services/eventService'); // Add this line
+const eventService = require('../services/eventService');
 
 const getAllUsers = async (req, res) => {
   try {
@@ -37,8 +37,8 @@ const createUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
-    const { name, email } = req.body;
-    const updatedUser = await userService.updateUser(req.params.id, name, email);
+    const { name, email, document } = req.body;
+    const updatedUser = await userService.updateUser(req.params.id, name, email, document);
     if (updatedUser) {
       res.status(200).json(updatedUser);
     } else {
@@ -73,6 +73,8 @@ const login = async (req, res) => {
     const fullUser = await userService.getUserById(user.id || user.user_id);
     if (fullUser) {
       req.session.userId = fullUser.id || fullUser.user_id;
+      req.session.email = fullUser.email; // save email in session
+      req.session.document = fullUser.document || ''; // save document in session
       return req.session.save(() => {
         res.redirect('/dashboard');
       });
