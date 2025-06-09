@@ -213,7 +213,27 @@ Este wireframe se relaciona diretamente às user stories produzidas (majoritaria
 
 ### 3.7 Interface e Navegação (Semana 07)
 
-*Descreva e ilustre aqui o desenvolvimento do frontend do sistema web, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+*O desenvolvimento realizado levou, primeiramente em conta, o design realizado no figma, que pôde ser transferido a partir de suas bases nativas em CSS para o próprio VS Code, o que com inúmeros ajustes, permitiu com que o site ficasse idêntico ao design produzido inicialmente. Não só isso, como trouxe consigo a autenticação específica do usuário da user story, o acesso aos links do sobre, à interação customizada ao dashboard com imagem de perfil e cards com dados vindo diretamente do Supabase, além destes podendo ser implementados diretamente na seção "Inscrições" do perfil, também formulado com base na persona:*
+
+![imagem_2025-06-08_213406156](https://github.com/user-attachments/assets/8c317ae8-04f2-4357-9ce1-14c291c04591)
+
+![imagem_2025-06-08_213440290](https://github.com/user-attachments/assets/73dc02e8-67ab-41c7-800a-fba47455c878)
+
+![imagem_2025-06-08_213516910](https://github.com/user-attachments/assets/006dc75d-a5b8-445d-b93a-26449bcdae72)
+
+![imagem_2025-06-08_213535879](https://github.com/user-attachments/assets/13e97ed2-f350-4c50-b9af-4b2ea90fe39b)
+
+*O design, portanto, foi complementado pelo extenso arquivo CSS, em que posições, tamanhos e caminhos das imagens, todos feitos à mão, foram realocados e ajustados, permitindo fidelidade à proposta. Também foram produzidos arquivos de rotas, de forma à abranger aos quatro arquivos.ejs e suas respectivas funções, como a criação, por exemplo, de uma sessão específica que guarda os cards selecionados no dashboard e os-posiciona na aba de perfil, já organizados dentro da seção específica. Também foram produzidos testes, verificando a renderização das páginas, que recebem dados de acordo com o modelo fetch:*
+
+![imagem_2025-06-08_213643228](https://github.com/user-attachments/assets/af2bacdc-3948-4eff-a3c1-a62c85fdad45)
+
+![imagem_2025-06-08_213715948](https://github.com/user-attachments/assets/768dfa41-afea-49eb-b10f-fad0960ba114)
+
+![imagem_2025-06-08_213740879](https://github.com/user-attachments/assets/5f1a34a6-a9f7-4a0c-833c-7bf8071b2826)
+
+![imagem_2025-06-08_213825800](https://github.com/user-attachments/assets/0d8fdf3e-e886-4a35-8139-999b36cde843)
+
+![imagem_2025-06-08_213904927](https://github.com/user-attachments/assets/0e2dda9d-5c1c-4e9d-8195-102751752396)
 
 ---
 
@@ -221,19 +241,57 @@ Este wireframe se relaciona diretamente às user stories produzidas (majoritaria
 
 ### 4.1 Demonstração do Sistema Web (Semana 8)
 
-*VIDEO: Insira o link do vídeo demonstrativo nesta seção*
-*Descreva e ilustre aqui o desenvolvimento do sistema web completo, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+*VIDEO: link do vídeo demonstrativo*
+
+[606768cf-03e4-40ea-9f49-7d530a54f107.webm](https://github.com/user-attachments/assets/c74fc4f4-c9c3-4e46-8301-d8d13bca2a7b)
+
+*O desenvolvimento realizado levou, primeiramente em conta, o design realizado no figma, que pôde ser transferido a partir de suas bases nativas em CSS para o próprio VS Code, o que com inúmeros ajustes, permitiu com que o site ficasse idêntico ao design produzido inicialmente. Não só isso, como trouxe consigo a autenticação específica do usuário da user story, o acesso aos links do sobre, à interação customizada ao dashboard com imagem de perfil e cards com dados vindo diretamente do Supabase, além destes podendo ser implementados diretamente na seção "Inscrições" do perfil, também formulado com base na persona:*
+
+![imagem_2025-06-08_213406156](https://github.com/user-attachments/assets/8c317ae8-04f2-4357-9ce1-14c291c04591)
+
+![imagem_2025-06-08_213440290](https://github.com/user-attachments/assets/73dc02e8-67ab-41c7-800a-fba47455c878)
+
+![imagem_2025-06-08_213516910](https://github.com/user-attachments/assets/006dc75d-a5b8-445d-b93a-26449bcdae72)
+
+![imagem_2025-06-08_213535879](https://github.com/user-attachments/assets/13e97ed2-f350-4c50-b9af-4b2ea90fe39b)
+
+*O design, portanto, foi complementado pelo extenso arquivo CSS, em que posições, tamanhos e caminhos das imagens, todos feitos à mão, foram realocados e ajustados, permitindo fidelidade à proposta. Também foram produzidos arquivos de rotas, de forma à abranger aos quatro arquivos.ejs e suas respectivas funções, como a criação, por exemplo, de uma sessão específica que guarda os cards selecionados no dashboard e os-posiciona na aba de perfil, já organizados dentro da seção específica. Também foram produzidos testes, verificando a renderização das páginas, que recebem dados de acordo com o modelo fetch:*
+
+![imagem_2025-06-08_213643228](https://github.com/user-attachments/assets/af2bacdc-3948-4eff-a3c1-a62c85fdad45)
+
+![imagem_2025-06-08_213715948](https://github.com/user-attachments/assets/768dfa41-afea-49eb-b10f-fad0960ba114)
+
+![imagem_2025-06-08_213740879](https://github.com/user-attachments/assets/5f1a34a6-a9f7-4a0c-833c-7bf8071b2826)
+
+![imagem_2025-06-08_213825800](https://github.com/user-attachments/assets/0d8fdf3e-e886-4a35-8139-999b36cde843)
+
+![imagem_2025-06-08_213904927](https://github.com/user-attachments/assets/0e2dda9d-5c1c-4e9d-8195-102751752396)
 
 ### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
 
-*Indique pontos fortes e pontos a melhorar de maneira geral.*
-*Relacione também quaisquer outras ideias que você tenha para melhorias futuras.*
 
+ Os pontos fortes do projeto são evidentes já no primeiro acesso: há uma atenção significativa aos detalhes de design e identidade visual, com uma proposta clara de criar uma marca original, com valores e propósitos bem definidos. Além disso, a concepção do "produto" foi transposta de forma eficiente para o código, estruturado segundo o padrão MVC. O projeto conta com documentação, instruções claras e arquivos bem organizados (JS, CSS e HTML), resultando em um ambiente funcional, ainda que em estágio inicial, alinhado ao objetivo da atividade.
+ Outro destaque é a integração direta com o banco de dados Supabase, utilizando variáveis de ambiente (.env). Essa abordagem não só torna a aplicação mais segura, como também mais escalável, permitindo que os dados sejam alterados sob demanda e, assim, tornando a funcionalidade principal do site mais flexível.
+
+Como pontos de melhoria, vejo como relevantes:
+
+- Implementar login via Google para facilitar o acesso do público geral
+
+- Tornar todas as telas responsivas, garantindo boa usabilidade em diferentes dispositivos
+
+- Criptografar as senhas durante a comunicação cliente-servidor, aumentando a segurança
+
+- Permitir que usuários comuns adicionem eventos via interface
+
+- Incluir um retorno claro à tela inicial após determinadas ações
+
+- Guardar os dados de cada interação no banco de dados
+
+Além disso, há espaço para evoluir o projeto para uma extensão de navegador integrada a serviços como o Google Calendar, um caminho para ampliar seu impacto e utilidade.
 
 
 ## <a name="c5"></a>5. Referências
 
 _Incluir as principais referências de seu projeto, para que seu parceiro possa consultar caso ele se interessar em aprofundar. Um exemplo de referência de livro e de site:_<br>
 
----
----
+Um site que me inspirou na atenção ao detalhe foi este: https://pingback.com/certificacao/home?utm_medium=rock-convert&utm_source=rock&utm_campaign=blog
