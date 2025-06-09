@@ -155,7 +155,8 @@ Scripts Disponíveis
 * `npm run test`: Executa os testes automatizados.
 * `npm run test:coverage`: Executa os testes e gera um relatório de cobertura de código.
 * `npm run migrate`: Executa as migrações localizadas em migrations
-*`node server.js`: Executa o servidor local
+
+* `node server.js`: Executa o servidor local
 
 **E para testar os endpoints do CRUD:**
 

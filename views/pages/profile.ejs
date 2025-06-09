@@ -1,3 +1,4 @@
+<!-- Página de perfil do usuário -->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,7 +7,6 @@
     <title>Perfil</title>
     <link rel="stylesheet" href="/styles/main.css">
     <style>
-        /* Estilos essenciais para a página de Perfil */
         html,
         body {
             margin: 0;
@@ -23,8 +23,9 @@
 
 <body>
     <%- include('../components/header-dashboard.ejs', { page: 'profile' }) %>
+        <!-- Conteúdo principal do perfil -->
         <div class="main-content-wrapper">
-            <!-- Seção de informações e inscrições -->
+            <!-- Seção da esquerda com dados e inscrições -->
             <div class="left-section">
                 <div class="email-container">
                     <div class="form-label-email">E-mail:</div>
@@ -62,9 +63,10 @@
                     </div>
                 </div>
             </div>
-            <!-- Seção de perfil -->
+            <!-- Seção da direita com imagem e nome do perfil -->
             <div class="right-section">
                 <div class="profile-circle-bg"></div>
+                <div class="profile-circle"></div>
                 <img src="/assets/perfilimg.png" alt="Perfil" class="profile-image">
                 <div class="profile-name-container">
                     <div class="profile-name">Rogério Dias</div>

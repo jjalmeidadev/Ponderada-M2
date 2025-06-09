@@ -6,7 +6,6 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="/styles/main.css">
     <style>
-        /* Estilos essenciais para Dashboard */
         html,
         body {
             margin: 0;
@@ -20,11 +19,6 @@
             overflow-y: auto;
         }
 
-        html::-webkit-scrollbar,
-        body::-webkit-scrollbar {
-            display: none;
-        }
-
         .evento-destaque {
             margin-top: 48px;
             margin-left: 90px;
@@ -34,8 +28,8 @@
 
 <body>
     <%- include('../components/header-dashboard') %>
+        <!-- Evento em destaque -->
         <% if (events && events.length> 0) { %>
-            <!-- Evento em destaque -->
             <div class="evento-destaque">
                 <div class="conteudo-destaque">
                     <h1 class="titulo-destaque">
@@ -62,8 +56,8 @@
             <% } %>
                 <!-- Grade de eventos -->
                 <div class="grade-eventos">
-                    <% if (events && events.length> 1) { for (let i = 1; i < events.length; i++) { const
-                            event=events[i]; %>
+                    <% if (events && events.length> 1) {
+                        for (let i = 1; i < events.length; i++) { const event=events[i]; %>
                             <div class="cartao-evento">
                                 <img src="<%= event.image_path %>" alt="<%= event.title %>" class="imagem-evento">
                                 <div class="conteudo-evento">
@@ -95,19 +89,26 @@
                 </div>
                 <div class="indicador-rolagem"></div>
                 <%- include('../components/footer') %>
+                    <button id="subscribeBtn" data-title="Meu Evento" data-subtitle="Subtítulo"
+                        data-description="Detalhes do evento">Inscrever-se</button>
                     <script>
-                        // Função para inscrição
                         function subscribeEvent(event) {
                             fetch('/subscribe', {
                                 method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                credentials: 'same-origin',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                credentials: 'same-origin', // Importante para manter sessão
                                 body: JSON.stringify({ event })
-                            }).then(res => res.json()).then(data => {
-                                if (data.success) alert('Inscrição realizada!');
-                            });
+                            }).then(res => res.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        alert('Inscrição realizada!');
+                                    }
+                                });
                         }
                     </script>
+
 </body>
 
 </html>

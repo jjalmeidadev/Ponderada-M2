@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../app');
+const app = require('../app'); // Importa o app do Express
 
 describe('Testes de Integração - Renderização das Pages', () => {
   test('GET /login deve renderizar a página de login', async () => {

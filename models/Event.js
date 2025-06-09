@@ -6,19 +6,41 @@ class Event extends Model {}
 
 Event.init(
   {
-    id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-    title: { type: DataTypes.STRING, allowNull: false },
-    subtitle: { type: DataTypes.STRING },
-    description: { type: DataTypes.TEXT },
-    date: { type: DataTypes.STRING },
-    image_path: { type: DataTypes.STRING },
-    video_path: { type: DataTypes.STRING },
-    organization_name: { type: DataTypes.STRING },
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    subtitle: {
+      type: DataTypes.STRING,
+    },
+    description: {
+      type: DataTypes.TEXT,
+    },
+    date: {
+      type: DataTypes.STRING,
+    },
+    image_path: {
+      type: DataTypes.STRING,
+    },
+    video_path: {
+      type: DataTypes.STRING,
+    },
+    organization_name: {
+      type: DataTypes.STRING,
+    },
   },
-  { sequelize, modelName: 'Event' }
+  {
+    sequelize,
+    modelName: 'Event',
+  }
 );
 
-// Associa o evento à organização com base no nome
+// Associação entre Event e Organization usando o nome da organização
 Event.belongsTo(Organization, {
   foreignKey: 'organization_name',
   targetKey: 'name',

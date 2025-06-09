@@ -4,7 +4,6 @@ const userController = require('../controllers/userController');
 const userService = require('../services/userService');
 
 router.use(async (req, res, next) => {
-  // Atribui o objeto usuário a partir da sessão, se disponível
   if (req.session && req.session.userId) {
     try {
       const user = await userService.getUserById(req.session.userId);
@@ -17,8 +16,11 @@ router.use(async (req, res, next) => {
   }
   next();
 });
+
 router.get('/dashboard', (req, res, next) => {
-  if (!req.session.userId) return res.redirect('/login');
+  if (!req.session.userId) {
+    return res.redirect('/login'); // Redireciona se não estiver logado
+  }
   next();
 }, userController.dashboard);
 

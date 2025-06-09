@@ -6,11 +6,12 @@
     <title>Sobre</title>
     <link rel="stylesheet" href="/styles/main.css">
     <style>
-        /* Estilos essenciais para a página Sobre */
         .imagem-fundo-login {
             height: 550px;
             display: block;
-            margin: 36px auto 0 302px;
+            margin: 0 auto;
+            margin-top: 36px;
+            margin-left: 302px;
             width: 1150px;
         }
 
@@ -22,6 +23,7 @@
 
 <body>
     <%- include('../components/nav-auth', { active: 'sobre' }) %>
+        <!-- Menu de navegação para usuários não autenticados -->
         <div class="conteudo">
             <div class="imagem-fundo">
                 <img src="/assets/loginsobrebgbox.png" alt="Fundo Login" class="imagem-fundo-login">
@@ -41,7 +43,8 @@
                     aplicação permitirá que usuários possam visualizar informações sobre os eventos disponíveis, se
                     inscrever de forma prática e acompanhar suas participações. Também oferecerá ferramentas para que os
                     organizadores administrem os eventos com facilidade, contribuindo para uma melhor organização e
-                    planejamento.                </p>
+                    planejamento.
+                </p>
             </div>
             <div class="secao-social">
                 <a href="https://linkedin.com/in/inorder" class="link-social" target="_blank">

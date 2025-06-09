@@ -1,6 +1,7 @@
 // migrations/migrate.js
 const pool = require('../config/database.js');
 
+// Função para criar a tabela "tarefas" se não existir
 async function migrate() {
   const query = `
     CREATE TABLE IF NOT EXISTS tarefas (
@@ -14,12 +15,12 @@ async function migrate() {
   `;
 
   try {
-    await pool.query(query);
+    await pool.query(query); // Executa a query de criação da tabela
     console.log('Tabela "tarefas" criada com sucesso.');
   } catch (err) {
     console.error('Erro ao criar a tabela:', err.message);
   } finally {
-    pool.end();
+    pool.end(); // Fecha a conexão
   }
 }
 

@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Alata&display=swap');
 
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body backgrounds */
 body {
     font-family: 'Inter', sans-serif;
     background: #403E3E;
@@ -1001,4 +1003,23 @@ body {
     text-align: center;
     pointer-events: none;
     z-index: 101;
+}
+
+/* Custom scrollbar para a página inteira */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FBC309;
+  border: 2px solid #000000;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E0A800;
 }

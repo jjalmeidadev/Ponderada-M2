@@ -1,10 +1,12 @@
-const db = require('../config/database.js'); // Replace or point to your DB client/pool
+const db = require('../config/database.js');
 
+// Retorna todos os eventos ordenados pela data (ascendente)
 async function getAllEvents() {
   const { rows } = await db.query('SELECT * FROM events ORDER BY date ASC');
   return rows;
 }
 
+// Cria um novo evento e retorna o registro criado
 async function createEvent(event) {
   const { title, subtitle, description, date, image_path, organization_id } = event;
   const { rows } = await db.query(

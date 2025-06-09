@@ -1,3 +1,4 @@
+# Ignorar diretórios e arquivos desnecessários
 node_modules/
 .env
 coverage/

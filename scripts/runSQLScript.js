@@ -3,6 +3,7 @@ const path = require('path');
 const { Pool } = require('pg');
 require('dotenv').config();
 
+// Cria conexão com o banco de dados
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
@@ -14,17 +15,18 @@ const pool = new Pool({
   },
 });
 
+// Função que executa o script SQL do arquivo init.sql
 const runSQLScript = async () => {
-  const filePath = path.join(__dirname, 'init.sql');
-  const sql = fs.readFileSync(filePath, 'utf8');
+  const filePath = path.join(__dirname, 'init.sql'); // Define o caminho do script
+  const sql = fs.readFileSync(filePath, 'utf8'); // Lê o conteúdo do script
 
   try {
-    await pool.query(sql);
+    await pool.query(sql); // Executa o script no banco de dados
     console.log('Script SQL executado com sucesso!');
   } catch (err) {
     console.error('Erro ao executar o script SQL:', err);
   } finally {
-    await pool.end();
+    await pool.end(); // Encerra a conexão com o banco
   }
 };
 
