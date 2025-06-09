@@ -292,6 +292,4 @@ Além disso, há espaço para evoluir o projeto para uma extensão de navegador 
 
 ## <a name="c5"></a>5. Referências
 
-_Incluir as principais referências de seu projeto, para que seu parceiro possa consultar caso ele se interessar em aprofundar. Um exemplo de referência de livro e de site:_<br>
-
 Um site que me inspirou na atenção ao detalhe foi este: https://pingback.com/certificacao/home?utm_medium=rock-convert&utm_source=rock&utm_campaign=blog
